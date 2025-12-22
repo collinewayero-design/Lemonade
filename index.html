@@ -3,186 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemonade</title>
+    <title>LEMONADE | The Future OS</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <div class="bg-layer">
+        <img src="https://images.unsplash.com/photo-1535868463750-c78d9543614f?q=80&w=2076&auto=format&fit=crop" alt="Background" class="bg-image">
+        <div class="bg-overlay"></div>
+    </div>
+
     <nav class="glass-nav">
-        <div class="nav-left">
-            <div class="logo">LEMONADE</div>
+        <div class="logo-box">
+            <h1 class="neon-text">LEMONADE</h1>
         </div>
         
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" placeholder="Search... (AI Integrated)">
+        <div class="search-box">
+            <i class="fas fa-robot"></i>
+            <input type="text" placeholder="AI Search...">
         </div>
 
-        <div class="nav-right">
-            <button class="nav-btn" onclick="showPage('home')">Home</button>
-            <button class="nav-btn" onclick="openModal('loginModal')">Login</button>
-            <button class="btn-premium" onclick="alert('Premium: $3/month\nBenefits: AI Search, No Ads, 2x EXP')">Premium</button>
+        <div class="nav-menu">
+            <button class="cool-btn" onclick="showPage('home')">Home</button>
+            <button class="cool-btn" onclick="openModal('loginModal')">Login</button>
+            <button class="premium-btn" onclick="alert('Unlock AI Features & No Ads!')">
+                <i class="fas fa-bolt"></i> Premium
+            </button>
         </div>
     </nav>
 
-    <main id="mainContent">
+    <main id="app">
+
+        <section id="home" class="page active">
+            
+            <div class="hero-section">
+                <div class="video-container">
+                    <video class="media-player" autoplay muted loop playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-holographic-interface-99-large.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-text">
+                        <h2>WELCOME TO THE FUTURE</h2>
+                        <p>Experience the Blue Glass OS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout">
+                <div class="neon-card gaming" onclick="showPage('gaming')">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>GAMING</h3>
+                </div>
+                <div class="neon-card movies" onclick="showPage('movies')">
+                    <i class="fas fa-film"></i>
+                    <h3>MOVIES</h3>
+                </div>
+                <div class="neon-card lifestyle" onclick="showPage('lifestyle')">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>LIFESTYLE</h3>
+                </div>
+                <div class="neon-card tech" onclick="showPage('tech')">
+                    <i class="fas fa-microchip"></i>
+                    <h3>TECH</h3>
+                </div>
+                <div class="neon-card ecommerce" onclick="showPage('ecommerce')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>COMMERCE</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="gaming" class="page hidden">
+            <div class="page-head">
+                <button class="back-btn" onclick="showPage('home')">← Back</button>
+                <h2 class="neon-title">GAMING FEED</h2>
+            </div>
+            <div class="feed-stream" id="gamingFeed">
+                </div>
+        </section>
+
+        <section id="movies" class="page hidden">
+            <div class="page-head">
+                <button class="back-btn" onclick="showPage('home')">← Back</button>
+                <h2 class="neon-title">MOVIES FEED</h2>
+            </div>
+            <div class="feed-stream" id="moviesFeed"></div>
+        </section>
+
+        <section id="lifestyle" class="page hidden">
+            <div class="page-head">
+                <button class="back-btn" onclick="showPage('home')">← Back</button>
+                <h2 class="neon-title">LIFESTYLE</h2>
+            </div>
+            <div class="feed-stream" id="lifestyleFeed"></div>
+        </section>
         
-        <section id="home" class="page-section active">
-            <div class="hero-container">
-                <div class="video-box">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>Welcome to Lemonade (20s Intro)</p>
-                    </div>
-                </div>
-                
-                <div class="hero-text">
-                    <h1>The Future Feed</h1>
-                    <p>Select a Genere to Venture Through</p>
-                </div>
-
-                <div class="grid-container">
-                    <div class="card" onclick="showPage('gaming')">
-                        <i class="fas fa-gamepad card-icon"></i>
-                        <h3>Gaming</h3>
-                        <p>Xbox, PS, Roblox, Minecraft</p>
-                    </div>
-                    <div class="card" onclick="showPage('movies')">
-                        <i class="fas fa-film card-icon"></i>
-                        <h3>Movies</h3>
-                        <p>Netflix, Acting, News</p>
-                    </div>
-                    <div class="card" onclick="showPage('lifestyle')">
-                        <i class="fas fa-tshirt card-icon"></i>
-                        <h3>Lifestyle</h3>
-                        <p>Fashion, LV, Versace</p>
-                    </div>
-                    <div class="card" onclick="showPage('tech')">
-                        <i class="fas fa-laptop-code card-icon"></i>
-                        <h3>Tech & Edit</h3>
-                        <p>Video Editing, Coding</p>
-                    </div>
-                     <div class="card" onclick="showPage('ecommerce')">
-                        <i class="fas fa-shopping-cart card-icon"></i>
-                        <h3>E-Commerce</h3>
-                        <p>Shopify, Amazon, Stores</p>
-                    </div>
-                </div>
+        <section id="tech" class="page hidden">
+            <div class="page-head">
+                <button class="back-btn" onclick="showPage('home')">← Back</button>
+                <h2 class="neon-title">TECH & EDIT</h2>
             </div>
+            <div class="feed-stream" id="techFeed"></div>
         </section>
 
-        <section id="gaming" class="page-section hidden">
-            <div class="feed-header">
-                <h2><i class="fas fa-gamepad"></i> Gaming Feed</h2>
-                <button onclick="showPage('home')" class="back-btn">Back</button>
+         <section id="ecommerce" class="page hidden">
+            <div class="page-head">
+                <button class="back-btn" onclick="showPage('home')">← Back</button>
+                <h2 class="neon-title">E-COMMERCE</h2>
             </div>
-            <div class="feed-content">
-                <div class="post"><strong>Xbox Update:</strong> New releases coming this summer.</div>
-                <div class="post"><strong>Roblox:</strong> Top 10 games to play with friends.</div>
-                <div class="post"><strong>Minecraft:</strong> 1.21 Update details leaked?</div>
-                <div class="post"><strong>PlayStation:</strong> Exclusive visuals revealed.</div>
-            </div>
-        </section>
-
-        <section id="movies" class="page-section hidden">
-            <div class="feed-header">
-                <h2><i class="fas fa-film"></i> Movies & Acting</h2>
-                <button onclick="showPage('home')" class="back-btn">Back</button>
-            </div>
-            <div class="feed-content">
-                <div class="post"><strong>Netflix:</strong> Top trending shows this week.</div>
-                <div class="post"><strong>Casting Call:</strong> Acting auditions for new series.</div>
-                <div class="post"><strong>Behind the Scenes:</strong> How the VFX was made.</div>
-            </div>
-        </section>
-
-        <section id="lifestyle" class="page-section hidden">
-            <div class="feed-header">
-                <h2><i class="fas fa-tshirt"></i> Fashion & Lifestyle</h2>
-                <button onclick="showPage('home')" class="back-btn">Back</button>
-            </div>
-            <div class="feed-content">
-                <div class="post"><strong>Versace:</strong> New collection dropped.</div>
-                <div class="post"><strong>Louis Vuitton:</strong> Fashion week highlights.</div>
-                <div class="post"><strong>Movie Stars:</strong> Who wore what?</div>
-            </div>
-        </section>
-
-        <section id="tech" class="page-section hidden">
-            <div class="feed-header">
-                <h2><i class="fas fa-video"></i> Video Editing & Tech</h2>
-                <button onclick="showPage('home')" class="back-btn">Back</button>
-            </div>
-            <div class="feed-content">
-                <div class="post"><strong>Premiere Pro:</strong> 5 Tips for faster editing.</div>
-                <div class="post"><strong>Course:</strong> Learn full-stack dev in 30 days.</div>
-                <div class="post"><strong>YouTubers:</strong> Best gear for 2025.</div>
-            </div>
-        </section>
-
-        <section id="ecommerce" class="page-section hidden">
-            <div class="feed-header">
-                <h2><i class="fas fa-store"></i> E-Commerce</h2>
-                <button onclick="showPage('home')" class="back-btn">Back</button>
-            </div>
-            <div class="feed-content">
-                <div class="post"><strong>Shopify:</strong> How to scale your store.</div>
-                <div class="post"><strong>Amazon FBA:</strong> Beginners guide.</div>
-                <div class="post"><strong>Sponsors:</strong> Partner links and discounts.</div>
-            </div>
+            <div class="feed-stream" id="ecommerceFeed"></div>
         </section>
 
     </main>
 
     <footer class="glass-footer">
-        <small>© 2025 Lemonade. Contact: lemonadeflames@proton.me</small>
-        <div class="footer-links">
-            <a href="#" onclick="openModal('adminModal')">Admin Panel</a>
-            <a href="#" onclick="openModal('sponsorModal')">Get Sponsored</a>
+        <div class="admin-links">
+            <a onclick="openModal('adminModal')">Admin Workspace</a>
+            <a onclick="openModal('sponsorModal')">Apply for Sponsorship</a>
         </div>
     </footer>
 
     <div id="adminModal" class="modal">
-        <div class="modal-content glass-panel">
+        <div class="modal-glass">
             <span class="close" onclick="closeModal('adminModal')">&times;</span>
-            <h3>Admin Access</h3>
-            <input type="password" id="adminPass" placeholder="Passcode (lemonadeflames)">
-            <button onclick="checkAdmin()">Enter</button>
+            <h3>SECURITY CLEARANCE</h3>
+            <input type="password" id="adminPass" placeholder="Enter Passcode...">
+            <button class="neon-btn-action" onclick="checkAdmin()">ACCESS</button>
         </div>
     </div>
 
     <div id="dashboardModal" class="modal">
-        <div class="modal-content glass-panel large-panel">
+        <div class="modal-glass wide">
             <span class="close" onclick="closeModal('dashboardModal')">&times;</span>
-            <h2 id="dashTitle">Admin Dashboard</h2>
-            <div class="dash-grid">
-                <div class="dash-box">
-                    <h4>Sponsorships</h4>
-                    <p>User: @NewUser</p>
-                    <button class="btn-approve" onclick="generateSponsorCode()">Approve</button>
+            <h2 id="dashTitle">ADMIN WORKSPACE</h2>
+            
+            <div class="workspace-grid">
+                <div class="panel-box">
+                    <h4>OWNER OVERRIDE</h4>
+                    <input type="password" id="ownerPass" placeholder="Owner Code...">
+                    <button class="neon-btn-action" onclick="checkOwner()">VERIFY IDENTITY</button>
                 </div>
-                <div class="dash-box">
-                    <h4>Owner Access</h4>
-                    <input type="password" id="ownerPass" placeholder="Code (lemonadeflames099)">
-                    <button onclick="checkOwner()">Verify</button>
+
+                <div class="panel-box">
+                    <h4>SPONSOR REQUESTS</h4>
+                    <div class="request-row">
+                        <span>User: @TechGuy99</span>
+                        <div>
+                            <button class="btn-green" onclick="approveSponsor()">ACCEPT</button>
+                            <button class="btn-red">DENY</button>
+                        </div>
+                    </div>
+                    <div id="sponsorCodeResult" class="code-result"></div>
                 </div>
             </div>
-            <div id="codeDisplay" class="code-box" style="display:none;"></div>
         </div>
     </div>
 
     <div id="sponsorModal" class="modal">
-        <div class="modal-content glass-panel">
+        <div class="modal-glass">
             <span class="close" onclick="closeModal('sponsorModal')">&times;</span>
-            <h3>Apply for Sponsorship</h3>
-            <input type="text" placeholder="YouTube/Social Link">
-            <input type="email" placeholder="Email">
-            <button onclick="alert('Sent!')">Submit</button>
+            <h3>GET SPONSORED</h3>
+            <form onsubmit="event.preventDefault(); alert('Request sent to Admin!'); closeModal('sponsorModal');">
+                <input type="text" placeholder="Link to Social Media (YouTube)" required>
+                <input type="text" placeholder="Sponsorship Period" required>
+                <input type="email" placeholder="Contact Email" required>
+                <button class="neon-btn-action">SUBMIT REQUEST</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="loginModal" class="modal">
+        <div class="modal-glass">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h3>MEMBER LOGIN</h3>
+             <input type="text" placeholder="Username">
+             <input type="password" placeholder="Password">
+             <button class="neon-btn-action">ENTER</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
                 </html>
-
