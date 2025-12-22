@@ -1,4 +1,23 @@
-// Modal Functions
+// --- Navigation Logic ---
+
+function showPage(pageId) {
+    // 1. Hide all pages
+    const pages = document.querySelectorAll('.page-section');
+    pages.forEach(page => {
+        page.classList.remove('active');
+        page.classList.add('hidden');
+    });
+
+    // 2. Show the selected page
+    const selectedPage = document.getElementById(pageId);
+    if(selectedPage) {
+        selectedPage.classList.remove('hidden');
+        selectedPage.classList.add('active');
+    }
+}
+
+// --- Modal Logic (Popups) ---
+
 function openModal(modalId) {
     document.getElementById(modalId).style.display = "block";
 }
@@ -7,60 +26,42 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = "none";
 }
 
-// Close modal if clicking outside
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.style.display = "none";
     }
 }
 
-// --- ADMIN PANEL LOGIC [Cite: Note 1, 4] ---
+// --- ADMIN & SECURITY ---
 
 function checkAdmin() {
     const input = document.getElementById('adminPass').value;
-    // Password from your notes
-    const adminCode = "lemonadeflames";
-
-    if(input === adminCode) {
+    if(input === "lemonadeflames") {
         closeModal('adminModal');
         openModal('dashboardModal');
-        alert("Welcome, Admin. Access Granted.");
     } else {
-        alert("Access Denied: Incorrect Passcode.");
+        alert("Access Denied");
     }
 }
-
-// --- OWNER LOGIC [Cite: Note 1] ---
 
 function checkOwner() {
     const input = document.getElementById('ownerPass').value;
-    // Owner Code from your notes
-    const ownerCode = "lemonadeflames099";
-
-    if(input === ownerCode) {
+    if(input === "lemonadeflames099") {
         document.getElementById('dashTitle').innerText = "OWNER DASHBOARD (God Mode)";
-        document.getElementById('dashTitle').style.color = "#ffd700"; // Gold color
-        alert("Owner Identity Verified. You have full control.");
+        document.getElementById('dashTitle').style.color = "#ffd700";
+        alert("Owner Verified.");
     } else {
-        alert("You are not the Owner.");
+        alert("Incorrect Owner Code");
     }
 }
 
-// --- SPONSORSHIP LOGIC [Cite: Note 4] ---
-
 function generateSponsorCode() {
-    // Generates a random one-time code
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let result = "";
     for (let i = 0; i < 8; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-
     const display = document.getElementById('codeDisplay');
     display.style.display = "block";
-    display.innerHTML = `
-        <p>Sponsorship Approved!</p>
-        <p>One-Time Code: <strong>${result}</strong></p>
-        <small>Message: "Your sponsorship has been approved. Don't share this code with another person. From: Lemonade"</small>
-    `;
+    display.innerHTML = `Code: <strong>${result}</strong> <br> <small>Don't share this.</small>`;
 }
