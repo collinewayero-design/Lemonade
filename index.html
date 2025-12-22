@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemonade | Flameoff</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="logo">LEMONADE <span class="flame">FLAMEOFF</span></div>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="AI Search (Premium)...">
+        </div>
+        <div class="nav-links">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="openModal('loginModal')">Login / Sign Up</a>
+            <button class="btn-premium" onclick="alert('Join Premium for $3/month!')">Premium</button>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="video-bg">
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>The Future of Content</h1>
+            <p>Gaming • Movies • Fashion • Tech</p>
+            <div class="glass-card-container">
+                <div class="card" onclick="alert('Opening Gaming Feed...')">
+                    <h3><i class="fas fa-gamepad"></i> Gaming</h3>
+                    <p>Xbox, PS, Roblox, Minecraft</p>
+                </div>
+                <div class="card" onclick="alert('Opening Movies Feed...')">
+                    <h3><i class="fas fa-film"></i> Movies</h3>
+                    <p>Netflix, Acting, Hot News</p>
+                </div>
+                <div class="card" onclick="alert('Opening Lifestyle Feed...')">
+                    <h3><i class="fas fa-tshirt"></i> Lifestyle</h3>
+                    <p>Fashion, LV, Versace</p>
+                </div>
+                <div class="card" onclick="alert('Opening Tech Feed...')">
+                    <h3><i class="fas fa-microchip"></i> Tech</h3>
+                    <p>Video Editing, Coding</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer class="glass-footer">
+        <p>Contact: lemonadeflames@proton.me</p>
+        <button onclick="openModal('adminModal')">Admin Panel</button>
+        <button onclick="openModal('sponsorModal')">Get Sponsored</button>
+    </footer>
+
+    <div id="adminModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('adminModal')">&times;</span>
+            <h2>Admin Access</h2>
+            <p>Enter Passcode:</p>
+            <input type="password" id="adminPass" placeholder="Enter code...">
+            <button onclick="checkAdmin()">Enter Dashboard</button>
+        </div>
+    </div>
+
+    <div id="dashboardModal" class="modal">
+        <div class="modal-content glass-panel large-panel">
+            <span class="close" onclick="closeModal('dashboardModal')">&times;</span>
+            <h2 id="dashTitle">Admin Dashboard</h2>
+            <div class="dash-grid">
+                <div class="dash-box">
+                    <h3>Sponsorship Requests</h3>
+                    <p>User: @CoolGamer wants sponsorship.</p>
+                    <button class="btn-approve" onclick="generateSponsorCode()">Approve & Generate Code</button>
+                    <button class="btn-deny">Deny</button>
+                </div>
+                <div class="dash-box">
+                    <h3>Owner Override</h3>
+                    <input type="password" id="ownerPass" placeholder="Owner Code...">
+                    <button onclick="checkOwner()">Verify Owner</button>
+                </div>
+            </div>
+            <div id="codeDisplay" class="code-box" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div id="sponsorModal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close" onclick="closeModal('sponsorModal')">&times;</span>
+            <h2>Apply for Sponsorship</h2>
+            <input type="text" placeholder="Social Media Link (YouTube)">
+            <input type="text" placeholder="Desired Period">
+            <input type="email" placeholder="Your Email/Discord">
+            <label><input type="checkbox"> I agree to the terms & rules.</label>
+            <button onclick="alert('Application Sent to Admin Dashboard!')">Submit Application</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
