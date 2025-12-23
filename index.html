@@ -1,187 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEMONADE | The Future OS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>Lemonade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="bg-layer">
-        <img src="https://images.unsplash.com/photo-1535868463750-c78d9543614f?q=80&w=2076&auto=format&fit=crop" alt="Background" class="bg-image">
-        <div class="bg-overlay"></div>
-    </div>
+<header class="navbar">
+  <h1>Lemonade</h1>
+  <div>
+    <button onclick="openAuth('login')">Login</button>
+    <button onclick="openAuth('signup')">Join</button>
+  </div>
+</header>
 
-    <nav class="glass-nav">
-        <div class="logo-box">
-            <h1 class="neon-text">LEMONADE</h1>
-        </div>
-        
-        <div class="search-box">
-            <i class="fas fa-robot"></i>
-            <input type="text" placeholder="AI Search...">
-        </div>
+<section class="welcome">
+  <video id="welcomeVideo" controls muted autoplay loop></video>
+</section>
 
-        <div class="nav-menu">
-            <button class="cool-btn" onclick="showPage('home')">Home</button>
-            <button class="cool-btn" onclick="openModal('loginModal')">Login</button>
-            <button class="premium-btn" onclick="alert('Unlock AI Features & No Ads!')">
-                <i class="fas fa-bolt"></i> Premium
-            </button>
-        </div>
-    </nav>
+<section class="create-post">
+  <h2>Create Post</h2>
+  <textarea id="postText" placeholder="Write something..."></textarea>
+  <input id="mediaLink" placeholder="Paste image or video link (optional)" />
+  <select id="mediaType">
+    <option value="none">Text Only</option>
+    <option value="image">Image</option>
+    <option value="video">Video (Premium)</option>
+  </select>
+  <button onclick="createPost()">Post</button>
+</section>
 
-    <main id="app">
+<section id="feed" class="feed"></section>
 
-        <section id="home" class="page active">
-            
-            <div class="hero-section">
-                <div class="video-container">
-                    <video class="media-player" autoplay muted loop playsinline>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-holographic-interface-99-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-text">
-                        <h2>WELCOME TO THE FUTURE</h2>
-                        <p>Experience the Blue Glass OS</p>
-                    </div>
-                </div>
-            </div>
+<section id="adminPanel" class="admin hidden">
+  <h2>Lemonade Admin Dashboard</h2>
+  <button onclick="togglePremium()">Toggle Premium User</button>
+</section>
 
-            <div class="grid-layout">
-                <div class="neon-card gaming" onclick="showPage('gaming')">
-                    <i class="fas fa-gamepad"></i>
-                    <h3>GAMING</h3>
-                </div>
-                <div class="neon-card movies" onclick="showPage('movies')">
-                    <i class="fas fa-film"></i>
-                    <h3>MOVIES</h3>
-                </div>
-                <div class="neon-card lifestyle" onclick="showPage('lifestyle')">
-                    <i class="fas fa-tshirt"></i>
-                    <h3>LIFESTYLE</h3>
-                </div>
-                <div class="neon-card tech" onclick="showPage('tech')">
-                    <i class="fas fa-microchip"></i>
-                    <h3>TECH</h3>
-                </div>
-                <div class="neon-card ecommerce" onclick="showPage('ecommerce')">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>COMMERCE</h3>
-                </div>
-            </div>
-        </section>
+<div id="authModal" class="modal hidden">
+  <form id="authForm" class="modal-box">
+    <h3 id="authTitle"></h3>
+    <input id="email" type="email" placeholder="Email" required />
+    <input id="password" type="password" placeholder="Password" required />
+    <button type="submit">Continue</button>
+    <button type="button" onclick="closeAuth()">Close</button>
+  </form>
+</div>
 
-        <section id="gaming" class="page hidden">
-            <div class="page-head">
-                <button class="back-btn" onclick="showPage('home')">← Back</button>
-                <h2 class="neon-title">GAMING FEED</h2>
-            </div>
-            <div class="feed-stream" id="gamingFeed">
-                </div>
-        </section>
-
-        <section id="movies" class="page hidden">
-            <div class="page-head">
-                <button class="back-btn" onclick="showPage('home')">← Back</button>
-                <h2 class="neon-title">MOVIES FEED</h2>
-            </div>
-            <div class="feed-stream" id="moviesFeed"></div>
-        </section>
-
-        <section id="lifestyle" class="page hidden">
-            <div class="page-head">
-                <button class="back-btn" onclick="showPage('home')">← Back</button>
-                <h2 class="neon-title">LIFESTYLE</h2>
-            </div>
-            <div class="feed-stream" id="lifestyleFeed"></div>
-        </section>
-        
-        <section id="tech" class="page hidden">
-            <div class="page-head">
-                <button class="back-btn" onclick="showPage('home')">← Back</button>
-                <h2 class="neon-title">TECH & EDIT</h2>
-            </div>
-            <div class="feed-stream" id="techFeed"></div>
-        </section>
-
-         <section id="ecommerce" class="page hidden">
-            <div class="page-head">
-                <button class="back-btn" onclick="showPage('home')">← Back</button>
-                <h2 class="neon-title">E-COMMERCE</h2>
-            </div>
-            <div class="feed-stream" id="ecommerceFeed"></div>
-        </section>
-
-    </main>
-
-    <footer class="glass-footer">
-        <div class="admin-links">
-            <a onclick="openModal('adminModal')">Admin Workspace</a>
-            <a onclick="openModal('sponsorModal')">Apply for Sponsorship</a>
-        </div>
-    </footer>
-
-    <div id="adminModal" class="modal">
-        <div class="modal-glass">
-            <span class="close" onclick="closeModal('adminModal')">&times;</span>
-            <h3>SECURITY CLEARANCE</h3>
-            <input type="password" id="adminPass" placeholder="Enter Passcode...">
-            <button class="neon-btn-action" onclick="checkAdmin()">ACCESS</button>
-        </div>
-    </div>
-
-    <div id="dashboardModal" class="modal">
-        <div class="modal-glass wide">
-            <span class="close" onclick="closeModal('dashboardModal')">&times;</span>
-            <h2 id="dashTitle">ADMIN WORKSPACE</h2>
-            
-            <div class="workspace-grid">
-                <div class="panel-box">
-                    <h4>OWNER OVERRIDE</h4>
-                    <input type="password" id="ownerPass" placeholder="Owner Code...">
-                    <button class="neon-btn-action" onclick="checkOwner()">VERIFY IDENTITY</button>
-                </div>
-
-                <div class="panel-box">
-                    <h4>SPONSOR REQUESTS</h4>
-                    <div class="request-row">
-                        <span>User: @TechGuy99</span>
-                        <div>
-                            <button class="btn-green" onclick="approveSponsor()">ACCEPT</button>
-                            <button class="btn-red">DENY</button>
-                        </div>
-                    </div>
-                    <div id="sponsorCodeResult" class="code-result"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="sponsorModal" class="modal">
-        <div class="modal-glass">
-            <span class="close" onclick="closeModal('sponsorModal')">&times;</span>
-            <h3>GET SPONSORED</h3>
-            <form onsubmit="event.preventDefault(); alert('Request sent to Admin!'); closeModal('sponsorModal');">
-                <input type="text" placeholder="Link to Social Media (YouTube)" required>
-                <input type="text" placeholder="Sponsorship Period" required>
-                <input type="email" placeholder="Contact Email" required>
-                <button class="neon-btn-action">SUBMIT REQUEST</button>
-            </form>
-        </div>
-    </div>
-    
-    <div id="loginModal" class="modal">
-        <div class="modal-glass">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h3>MEMBER LOGIN</h3>
-             <input type="text" placeholder="Username">
-             <input type="password" placeholder="Password">
-             <button class="neon-btn-action">ENTER</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-                </html>
+      </html>
+      
