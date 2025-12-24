@@ -1,87 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
-  color: #ffffff;
+  font-family: system-ui, Arial, sans-serif;
+  background: linear-gradient(120deg, #050505, #0f0f0f);
+  color: white;
+  min-height: 100vh;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   padding: 16px;
-  background: #111;
 }
 
-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.navbar nav a {
+  margin-left: 12px;
+  opacity: 0.8;
+}
+
+.navbar nav a:hover {
+  opacity: 1;
+}
+
+.welcome {
+  margin: 20px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .welcome video {
   width: 100%;
-  max-height: 420px;
+  height: 280px;
   object-fit: cover;
 }
 
-.create-post {
-  padding: 20px;
-  background: #141414;
-}
-
-.create-post textarea,
-.create-post input,
-.create-post select {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background: #1f1f1f;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-}
-
-.feed {
-  padding: 20px;
+.card-grid {
   display: grid;
-  gap: 20px;
-}
-
-.post {
-  background: #161616;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.post img,
-.post video {
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 8px;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-box {
-  background: #1b1b1b;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
   padding: 20px;
-  border-radius: 10px;
-  width: 300px;
 }
 
-.hidden {
-  display: none;
+.card {
+  padding: 30px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 16px;
 }
 
-.admin {
-  padding: 20px;
-  background: #0f0f0f;
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: 0.2s;
 }
