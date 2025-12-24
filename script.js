@@ -71,5 +71,5 @@ const SUPABASE_ANON_KEY = ''
 // AI PLACEHOLDER
 function aiProcess(content) {
   return content
-      }
-      
+}
+  
