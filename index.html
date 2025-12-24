@@ -8,48 +8,32 @@
 </head>
 <body>
 
-<header class="navbar">
+<header class="navbar glass">
   <h1>Lemonade</h1>
-  <div>
-    <button onclick="openAuth('login')">Login</button>
-    <button onclick="openAuth('signup')">Join</button>
-  </div>
+  <nav>
+    <a href="genres/gaming.html">Gaming</a>
+    <a href="genres/movies.html">Movies</a>
+    <a href="genres/lifestyle.html">Lifestyle</a>
+    <a href="genres/video-editing.html">Editing</a>
+    <a href="genres/tech.html">Tech</a>
+    <a href="genres/ecommerce.html">E-commerce</a>
+  </nav>
 </header>
 
-<section class="welcome">
-  <video id="welcomeVideo" controls muted autoplay loop></video>
+<section class="welcome glass">
+  <video id="welcomeVideo" muted autoplay loop playsinline></video>
 </section>
 
-<section class="create-post">
-  <h2>Create Post</h2>
-  <textarea id="postText" placeholder="Write something..."></textarea>
-  <input id="mediaLink" placeholder="Paste image or video link (optional)" />
-  <select id="mediaType">
-    <option value="none">Text Only</option>
-    <option value="image">Image</option>
-    <option value="video">Video (Premium)</option>
-  </select>
-  <button onclick="createPost()">Post</button>
+<section class="card-grid">
+  <a class="glass card" href="genres/gaming.html">🎮 Gaming</a>
+  <a class="glass card" href="genres/movies.html">🎬 Movies</a>
+  <a class="glass card" href="genres/lifestyle.html">👗 Lifestyle</a>
+  <a class="glass card" href="genres/video-editing.html">✂ Video Editing</a>
+  <a class="glass card" href="genres/tech.html">🤖 Tech</a>
+  <a class="glass card" href="genres/ecommerce.html">🛒 E-commerce</a>
 </section>
-
-<section id="feed" class="feed"></section>
-
-<section id="adminPanel" class="admin hidden">
-  <h2>Lemonade Admin Dashboard</h2>
-  <button onclick="togglePremium()">Toggle Premium User</button>
-</section>
-
-<div id="authModal" class="modal hidden">
-  <form id="authForm" class="modal-box">
-    <h3 id="authTitle"></h3>
-    <input id="email" type="email" placeholder="Email" required />
-    <input id="password" type="password" placeholder="Password" required />
-    <button type="submit">Continue</button>
-    <button type="button" onclick="closeAuth()">Close</button>
-  </form>
-</div>
 
 <script src="script.js"></script>
 </body>
-      </html>
-      
+    </html>
+    
